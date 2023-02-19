@@ -1,5 +1,7 @@
 import { Link } from "gatsby";
 import React, { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
+import style from "./index.module.css";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -25,14 +27,33 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>this is home</h1>
+    <div style={{ width: "60%", margin: "auto" }}>
+      <h1 style={{ textAlign: "center" }}>Welcome to Gatsby Blog</h1>
       {posts.map((post) => (
         <div key={post.postId}>
-          <p>{post.postId}</p>
           <h1>{post.title}</h1>
-          <h3>{post.description}</h3>
-          {/* <Link to={`/description/${post.postId}`}>Read more</Link> */}
+          <div
+            style={{ marginBottom: "5%" }}
+            dangerouslySetInnerHTML={{
+              __html: post?.description.slice(0, 200),
+            }}
+          />
+          <Link
+            to={`/post/${post.postId}`}
+            style={{
+              backgroundColor: "#dc3545",
+              color: "white",
+              textDecoration: "none",
+              padding: "2%",
+              borderRadius: "5%",
+              display: "block",
+              width: "150px",
+              margin: "auto",
+              textAlign: "center",
+            }}
+          >
+            Read more
+          </Link>
         </div>
       ))}
     </div>
