@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Singlepost = (props) => {
   const [post, setPost] = useState();
@@ -24,26 +25,40 @@ const Singlepost = (props) => {
   }, [props.params.id]);
 
   return (
-    <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
-      <Link
-        to="/"
-        style={{
-          backgroundColor: "#dc3545",
-          color: "white",
-          textDecoration: "none",
-          padding: "2%",
-          borderRadius: "5%",
-          marginTop: "5% !important",
-        }}
-      >
-        Home
-      </Link>
-      <h1>Title: {post?.title}</h1>
-      <h3>Category: {post?.category}</h3>
-      <h1>Description</h1>
+    <>
+      {post && (
+        <Helmet>
+          <title>{post.title}</title>
+          <meta name="title" content={post.title} />
+          <meta name="category" content={post.category} />
+          <meta name="description" content={post.description} />
+          <meta
+            property="url"
+            content={typeof window !== "undefined" ? window.location.href : ""}
+          />
+        </Helmet>
+      )}
+      <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
+        <Link
+          to="/"
+          style={{
+            backgroundColor: "#dc3545",
+            color: "white",
+            textDecoration: "none",
+            padding: "2%",
+            borderRadius: "5%",
+            marginTop: "5% !important",
+          }}
+        >
+          Home
+        </Link>
+        <h1>Title: {post?.title}</h1>
+        <h3>Category: {post?.category}</h3>
+        <h1>Description</h1>
 
-      <div dangerouslySetInnerHTML={{ __html: post?.description }} />
-    </div>
+        <div dangerouslySetInnerHTML={{ __html: post?.description }} />
+      </div>
+    </>
   );
 };
 
