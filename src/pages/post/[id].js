@@ -31,10 +31,16 @@ const Singlepost = (props) => {
   return (
     <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
       <Helmet>
-        <meta property="og:title" content={post?.title} />
-        <meta property="og:category" content={post?.category} />
+        <meta property="og:title" content={post?.title || "Default Title"} />
+        <meta
+          property="og:category"
+          content={post?.category || "Default category"}
+        />
         <meta property="og:url" content={window.location.href} />
-        <meta property="og:image" content={icon} />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/NmXNkBk/example-image.jpg"
+        />
       </Helmet>
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
