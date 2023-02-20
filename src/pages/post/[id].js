@@ -1,11 +1,13 @@
 import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Singlepost = (props) => {
   const [post, setPost] = useState();
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // fetch posts data from API
     const requestOptions = {
       method: "GET",
       headers: {
@@ -21,44 +23,43 @@ const Singlepost = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setPost(data);
+        setLoading(false);
       });
   }, [props.params.id]);
 
   return (
-    <>
-      {post && (
-        <Helmet>
-          <title>{post.title}</title>
-          <meta name="title" content={post.title} />
-          <meta name="category" content={post.category} />
-          <meta name="description" content={post.description} />
-          <meta
-            property="url"
-            content={typeof window !== "undefined" ? window.location.href : ""}
-          />
-        </Helmet>
-      )}
-      <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
-        <Link
-          to="/"
-          style={{
-            backgroundColor: "#dc3545",
-            color: "white",
-            textDecoration: "none",
-            padding: "2%",
-            borderRadius: "5%",
-            marginTop: "5% !important",
-          }}
-        >
-          Home
-        </Link>
-        <h1>Title: {post?.title}</h1>
-        <h3>Category: {post?.category}</h3>
-        <h1>Description</h1>
+    <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
+      <Helmet>
+        <meta property="og:title" content={post?.title} />
+        <meta property="og:category" content={post?.category} />
+      </Helmet>
+      <SkeletonTheme baseColor="#202020" highlightColor="#444">
+        {loading ? (
+          <Skeleton count={50} />
+        ) : (
+          <div>
+            <Link
+              to="/"
+              style={{
+                backgroundColor: "#dc3545",
+                color: "white",
+                textDecoration: "none",
+                padding: "2%",
+                borderRadius: "5%",
+                marginTop: "5% !important",
+              }}
+            >
+              Home
+            </Link>
+            <h1>Title: {post?.title}</h1>
+            <h3>Category: {post?.category}</h3>
+            <h1>Description</h1>
 
-        <div dangerouslySetInnerHTML={{ __html: post?.description }} />
-      </div>
-    </>
+            <div dangerouslySetInnerHTML={{ __html: post?.description }} />
+          </div>
+        )}
+      </SkeletonTheme>
+    </div>
   );
 };
 
