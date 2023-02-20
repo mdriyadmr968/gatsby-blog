@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import icon from "../../images/icon.png";
 
 const Singlepost = (props) => {
   const [post, setPost] = useState();
@@ -38,8 +37,10 @@ const Singlepost = (props) => {
         />
         <meta
           property="og:image"
-          content="https://i.ibb.co/NmXNkBk/example-image.jpg"
+          itemprop="image"
+          content="https://i.ibb.co/x7JmZNX/download-300x300.jpg"
         />
+
         <meta property="robots" content="index, follow" />
       </Helmet>
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
