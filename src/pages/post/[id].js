@@ -36,7 +36,6 @@ const Singlepost = (props) => {
           property="og:category"
           content={post?.category || "Default category"}
         />
-        <meta property="og:url" content={window.location.href} />
         <meta
           property="og:image"
           content="https://i.ibb.co/NmXNkBk/example-image.jpg"
