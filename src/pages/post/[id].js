@@ -41,6 +41,7 @@ const Singlepost = (props) => {
           property="og:image"
           content="https://i.ibb.co/NmXNkBk/example-image.jpg"
         />
+        <meta property="robots" content="index, follow" />
       </Helmet>
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
