@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import icon from "../../images/icon.png";
 
 const Singlepost = (props) => {
   const [post, setPost] = useState();
@@ -32,6 +33,8 @@ const Singlepost = (props) => {
       <Helmet>
         <meta property="og:title" content={post?.title} />
         <meta property="og:category" content={post?.category} />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:image" content={icon} />
       </Helmet>
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
