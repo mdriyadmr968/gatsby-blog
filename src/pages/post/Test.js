@@ -30,7 +30,7 @@ const Test = () => {
 
   return (
     <>
-      <SEO title={post?.title} />
+      <Head title={post?.title} />
       <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
           {loading ? (
@@ -64,6 +64,6 @@ const Test = () => {
 };
 export default Test;
 
-export const Head = () => {
-  return <SEO title="test page" />;
+const Head = ({ title }) => {
+  return <SEO title={title} />;
 };
