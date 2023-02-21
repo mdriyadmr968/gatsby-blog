@@ -2,11 +2,8 @@ import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Head } from "../../Components/head";
 import { SEO } from "../../Components/seo";
-
-const Head = ({ title }) => {
-  return <SEO title={title || "alternet title"} />;
-};
 
 const Test = () => {
   const [post, setPost] = useState();
