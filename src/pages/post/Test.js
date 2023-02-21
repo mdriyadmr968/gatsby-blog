@@ -4,6 +4,10 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SEO } from "../../Components/seo";
 
+const Head = ({ title }) => {
+  return <SEO title={title || "alternet title"} />;
+};
+
 const Test = () => {
   const [post, setPost] = useState();
   const [loading, setLoading] = useState(true);
@@ -63,7 +67,3 @@ const Test = () => {
   );
 };
 export default Test;
-
-const Head = ({ title }) => {
-  return <SEO title={title} />;
-};
