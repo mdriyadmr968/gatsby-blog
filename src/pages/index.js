@@ -49,22 +49,6 @@ const IndexPage = () => {
                       __html: post?.description.slice(0, 200),
                     }}
                   />
-                  {/* <Link
-                    to={`/post/${post.postId}`}
-                    style={{
-                      backgroundColor: "#dc3545",
-                      color: "white",
-                      textDecoration: "none",
-                      padding: "2%",
-                      borderRadius: "5%",
-                      display: "block",
-                      width: "150px",
-                      margin: "auto",
-                      textAlign: "center",
-                    }}
-                  >
-                    Read more
-                  </Link> */}
                 </div>
               ))}
             </div>
