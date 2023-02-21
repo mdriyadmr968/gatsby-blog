@@ -1,9 +1,9 @@
 import { Link } from "gatsby";
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { SEO } from "../Components/seo";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -74,3 +74,5 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const Head = () => <SEO title="my gatsby blog" />;

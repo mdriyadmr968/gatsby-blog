@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { SEO } from "../../Components/seo";
 
 const Singlepost = (props) => {
   const [post, setPost] = useState();
@@ -54,57 +55,9 @@ const Singlepost = (props) => {
           </div>
         )}
       </SkeletonTheme>
-      <Head post={post} />
     </div>
   );
 };
 
-const Head = ({ post }) => (
-  <>
-    {/* <title>{post?.title}</title>
-    <meta property="og:title" content={post?.title} />
-    <meta property="og:category" content={post?.category} />
-    <meta
-      property="og:image"
-      content="https://i.ibb.co/x7JmZNX/download-300x300.jpg"
-      alt="download-300x300"
-    />
-
-    <meta property="og:url" content="https://gatsby-blog-ashy.vercel.app/" /> */}
-
-    <meta
-      name="msapplication-Tilelmage"
-      content="https://sahittorosh.com/wp-content/uploads/2022/09/20220910_204835.jpg"
-    />
-
-    <meta property="og:site_name" content="Pure Surface" />
-    <meta
-      property="og:সাহিত্য রস"
-      content="225 Days of Self Sanitizing Surface from Coronavirus"
-    />
-    <meta
-      property="og: সাহিত্যের সোসাল মিডিয়া| সাহিত্য সঙ্গম"
-      content="Just 1 time   application"
-    />
-
-    <meta
-      property="og:image"
-      itemprop="image"
-      content="https://sahittorosh.com/wp-content/uploads/2022/09/20220910_204835.jpg"
-    />
-
-    <meta property="og:type" content="website" />
-
-    <meta property="og:image:type" content="image/png" />
-
-    <meta property="og:image:width" content="300" />
-    <meta property="og:image:height" content="300" />
-
-    <meta
-      property="og:url"
-      content="https://i.ibb.co/x7JmZNX/download-300x300.jpg"
-    />
-  </>
-);
-
 export default Singlepost;
+export const Head = () => <SEO title="single post" />;

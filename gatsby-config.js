@@ -3,7 +3,10 @@
  */
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Corbin Cargil`,
+    description: `A site to showcase my projects and skills as a developer`,
+    image: `/meta-image.png`,
+    siteUrl: `https://www.corbincargil.com`,
   },
   plugins: [],
 };
