@@ -65,5 +65,5 @@ const Test = () => {
 export default Test;
 
 export const Head = () => {
-  <SEO title="test page" />;
+  return <SEO title="test page" />;
 };
