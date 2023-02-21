@@ -3,7 +3,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Head from "../Components/head";
+import { Head } from "../Components/head";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -77,4 +77,3 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
-
