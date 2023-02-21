@@ -49,7 +49,7 @@ const IndexPage = () => {
                       __html: post?.description.slice(0, 200),
                     }}
                   />
-                  <Link
+                  {/* <Link
                     to={`/post/${post.postId}`}
                     style={{
                       backgroundColor: "#dc3545",
@@ -64,7 +64,7 @@ const IndexPage = () => {
                     }}
                   >
                     Read more
-                  </Link>
+                  </Link> */}
                 </div>
               ))}
             </div>
