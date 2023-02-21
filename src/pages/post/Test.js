@@ -63,3 +63,7 @@ const Test = () => {
   );
 };
 export default Test;
+
+export const Head = () => {
+  <SEO />;
+};
