@@ -27,37 +27,42 @@ const Singlepost = (props) => {
       });
   }, [props.params.id]);
 
-  return (
-    <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
-      <SkeletonTheme baseColor="#202020" highlightColor="#444">
-        {loading ? (
-          <Skeleton count={50} />
-        ) : (
-          <div>
-            <Link
-              to="/"
-              style={{
-                backgroundColor: "#dc3545",
-                color: "white",
-                textDecoration: "none",
-                padding: "2%",
-                borderRadius: "5%",
-                marginTop: "5% !important",
-              }}
-            >
-              Home
-            </Link>
-            <h1>Title: {post?.title}</h1>
-            <h3>Category: {post?.category}</h3>
-            <h1>Description</h1>
+  const postTitle = post?.title;
+  const postDescription = post?.description;
 
-            <div dangerouslySetInnerHTML={{ __html: post?.description }} />
-          </div>
-        )}
-      </SkeletonTheme>
-    </div>
+  return (
+    <>
+      <SEO title={postTitle} description={postDescription} />
+      <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
+        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+          {loading ? (
+            <Skeleton count={50} />
+          ) : (
+            <div>
+              <Link
+                to="/"
+                style={{
+                  backgroundColor: "#dc3545",
+                  color: "white",
+                  textDecoration: "none",
+                  padding: "2%",
+                  borderRadius: "5%",
+                  marginTop: "5% !important",
+                }}
+              >
+                Home
+              </Link>
+              <h1>Title: {post?.title}</h1>
+              <h3>Category: {post?.category}</h3>
+              <h1>Description</h1>
+
+              <div dangerouslySetInnerHTML={{ __html: post?.description }} />
+            </div>
+          )}
+        </SkeletonTheme>
+      </div>
+    </>
   );
 };
 
 export default Singlepost;
-export const Head = () => <SEO title="single post" />;
