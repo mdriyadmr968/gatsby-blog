@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { SEO } from "../../Components/seo";
 
 const Singlepost = (props) => {
   const [post, setPost] = useState();
@@ -63,5 +64,6 @@ const Singlepost = (props) => {
 };
 
 export default Singlepost;
+export const Head = () => <SEO title="my gatsby blog" />;
 
 
