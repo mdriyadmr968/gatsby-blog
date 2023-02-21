@@ -7,6 +7,7 @@ import { SEO } from "../../Components/seo";
 const Singlepost = (props) => {
   const [post, setPost] = useState();
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const requestOptions = {
       method: "GET",
@@ -27,12 +28,9 @@ const Singlepost = (props) => {
       });
   }, [props.params.id]);
 
-  const postTitle = post?.title;
-  const postDescription = post?.description;
-
   return (
     <>
-      <SEO title={postTitle} description={postDescription} />
+      <Head title={post?.title}></Head>
       <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
           {loading ? (
@@ -66,3 +64,4 @@ const Singlepost = (props) => {
 };
 
 export default Singlepost;
+const Head = (props) => <SEO title={props.title} />;
