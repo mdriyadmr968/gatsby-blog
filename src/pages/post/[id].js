@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Head } from "../../Components/head";
 
 const Singlepost = (props) => {
   const [post, setPost] = useState();
@@ -30,7 +29,7 @@ const Singlepost = (props) => {
 
   return (
     <>
-      <Head title={post?.title}/>
+      {/* <Head title="This is a custom title"/> */}
       <div style={{ width: "60%", margin: "auto", paddingTop: "2%" }}>
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
           {loading ? (

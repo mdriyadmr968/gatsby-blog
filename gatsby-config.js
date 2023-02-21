@@ -3,10 +3,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Syied`,
-    description: `A simple blog site made by using gatsby`,
+    title: `Corbin Cargil`,
+    description: `A site to showcase my projects and skills as a developer`,
     image: `/meta-image.png`,
-    siteUrl: `https://www.syied.netlify.app`,
+    siteUrl: `https://www.corbincargil.com`,
   },
   plugins: [],
 };

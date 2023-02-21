@@ -3,7 +3,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Head } from "../Components/head";
+import { SEO } from "../Components/seo";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
@@ -32,7 +32,6 @@ const IndexPage = () => {
 
   return (
     <>
-      <Head title="my gatsby blog" />
       <div style={{ width: "60%", margin: "auto" }}>
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
           {loading ? (
@@ -77,3 +76,5 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const Head = () => <SEO title="my gatsby blog" />;
