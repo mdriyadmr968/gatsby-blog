@@ -1,11 +1,8 @@
 import React from "react";
 import { useSiteMetadata } from "../Hooks/use-site-metadata";
 
-export const SEO = ({ title, description, pathname, children }) => {
-  const {
-    title: defaultTitle,
-    siteUrl,
-  } = useSiteMetadata();
+export const SEO = ({ title, pathname }) => {
+  const { title: defaultTitle, siteUrl } = useSiteMetadata();
 
   const seo = {
     title: title || defaultTitle,
@@ -20,7 +17,6 @@ export const SEO = ({ title, description, pathname, children }) => {
         href="/corbin-cc-logo2.png"
         type="image/x-icon"
       />
-      {children}
     </>
   );
 };
