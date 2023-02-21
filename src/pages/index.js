@@ -77,4 +77,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <SEO title="my gatsby blog" />;
+// export const Head = () => <SEO title="my gatsby blog" />;
