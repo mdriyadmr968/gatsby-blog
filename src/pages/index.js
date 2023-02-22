@@ -31,34 +31,48 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <>
-      <div style={{ width: "60%", margin: "auto" }}>
-        <SkeletonTheme baseColor="#202020" highlightColor="#444">
-          {loading ? (
-            <Skeleton count={50} />
-          ) : (
-            <div>
-              <h1 style={{ textAlign: "center" }}>Welcome to Gatsby Blog</h1>
+    <div style={{ width: "60%", margin: "auto" }}>
+      <SkeletonTheme baseColor="#202020" highlightColor="#444">
+        {loading ? (
+          <Skeleton count={50} />
+        ) : (
+          <div>
+            <h1 style={{ textAlign: "center" }}>Welcome to Gatsby Blog</h1>
 
-              {posts.map((post) => (
-                <div key={post.postId}>
-                  <h1>{post.title}</h1>
-                  <div
-                    style={{ marginBottom: "5%" }}
-                    dangerouslySetInnerHTML={{
-                      __html: post?.description.slice(0, 200),
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </SkeletonTheme>
-      </div>
-    </>
+            {posts.map((post) => (
+              <div key={post.postId}>
+                <h1>{post.title}</h1>
+                <div
+                  style={{ marginBottom: "5%" }}
+                  dangerouslySetInnerHTML={{
+                    __html: post?.description.slice(0, 200),
+                  }}
+                />
+                <Link
+                  to={`/post/${post.postId}`}
+                  style={{
+                    backgroundColor: "#dc3545",
+                    color: "white",
+                    textDecoration: "none",
+                    padding: "2%",
+                    borderRadius: "5%",
+                    display: "block",
+                    width: "150px",
+                    margin: "auto",
+                    textAlign: "center",
+                  }}
+                >
+                  Read more
+                </Link>
+              </div>
+            ))}
+          </div>
+        )}
+      </SkeletonTheme>
+    </div>
   );
 };
 
 export default IndexPage;
 
-// export const Head = () => <SEO title="my gatsby blog" />;
+export const Head = () => <SEO title="my gatsby blog" />;

@@ -1,11 +1,20 @@
 import React from "react";
+import { useSiteMetadata } from "../Hooks/use-site-metadata";
 
-export const SEO = ({ title }) => {
+export const SEO = ({ title, children}) => {
+  const {
+    title: defaultTitle
+  } = useSiteMetadata();
+
+  const seo = {
+    title: title || defaultTitle
+  };
+
   return (
     <>
-      <title>{title || "hello title"}</title>
-      <meta name="title" content={title} />
-      <meta name="Description" content="testing default Description" />
+      <title>{seo.title}</title>
+      <meta name="title" content={seo.title} />
+      {children}
     </>
   );
 };
