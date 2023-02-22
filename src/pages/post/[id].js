@@ -60,4 +60,4 @@ const Singlepost = (props) => {
 };
 
 export default Singlepost;
-export const Head = () => <SEO title="single post" />;
+export const Head = () => <SEO />;
